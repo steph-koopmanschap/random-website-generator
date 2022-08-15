@@ -106,7 +106,7 @@ function createNewElement() {
         for (let index = 0; index < randIntRange(2, 8); index++) 
         {
             let item = document.createElement('li');
-            item.innerHTML = getRandomString(randIntRange(2, 10));
+            item.textContent = getRandomString(randIntRange(2, 10));
             newElement.appendChild(item);
         }
     }
@@ -118,8 +118,11 @@ function createNewElement() {
     else {
         newElement = document.createElement(randomElement);
     }
-
-    newElement.innerHTML = randomText;
+    //Prevent lists from being overridden
+    if (randomElement !== "ul" && randomElement !== "ol") 
+    {
+        newElement.innerHTML = randomText;
+    }
     newElement.style.color = getRandomColorHex();
     newElement.style.backgroundColor = getRandomColorHex();
     siteContainer.appendChild(newElement); 
