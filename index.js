@@ -59,7 +59,6 @@ function getRandomString(strLength, numOfStrings=1) {
     return strArray;
 }
 
-
 //Returns a random Hex color
 function getRandomColorHex() {
     let letters = '0123456789ABCDEF';
@@ -89,7 +88,7 @@ function createNewElement() {
         newElement = document.createElement('input');
         newElement.setAttribute("type", "text");
     }
-    else if (randomElement === "inputText")
+    else if (randomElement === "inputCheckbox")
     {
         newElement = document.createElement('input');
         newElement.setAttribute("type", "checkbox");
@@ -104,13 +103,15 @@ function createNewElement() {
     {
         newElement = document.createElement(randomElement);
         //Add items to the list
-        for (let index = 0; index < randIntRange(2, 8); index++) {
+        for (let index = 0; index < randIntRange(2, 8); index++) 
+        {
             let item = document.createElement('li');
             item.innerHTML = getRandomString(randIntRange(2, 10));
             newElement.appendChild(item);
         }
     }
-    else if (randomElement === "a") {
+    else if (randomElement === "a") 
+    {
         newElement = document.createElement('a');
         newElement.setAttribute("href", default_href);
     }
@@ -125,7 +126,8 @@ function createNewElement() {
 }
 
 function addNewElements() {
-    for (let i = 0; i < randIntRange(5, 100); i++) {
+    for (let i = 0; i < randIntRange(5, 100); i++) 
+    {
         createNewElement();
     }
 }
